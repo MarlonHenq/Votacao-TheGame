@@ -11,37 +11,53 @@ if ($cards == 0) {
 }
 
 if ($decks == 1){
-    do{
-        $rand = rand(0, $deck1Size);
-    }while (in_array($rand, $cards));
+    if (count($cards) == $deck1Size){
+        $frase = "Você jogou todas as cartas do modo, Obrigado!";
+    }
+    else{
+        do{
+            $rand = rand(0, $deck1Size-1);
+        }while (in_array($rand, $cards));
 
-    $id = $rand;
-    $deck1 = file("decks/1.deck");
-    $frase = $deck1[$id];
-}
-else if ($decks == 2){
-    do{
-        $rand = rand(0, $deck2Size);
-    }while (in_array($rand, $cards));
-
-    $id = $rand;
-    $deck2 = file("decks/2.deck");
-    $frase = $deck2[$id];
-}
-else{
-    $decksSize = $deck1Size + $deck2Size;
-    do{
-        $rand = rand(0, $decksSize);
-    }while (in_array($rand, $cards));
-
-    $id = $rand;
-    if ($id <= $deck1Size){
+        $id = $rand;
         $deck1 = file("decks/1.deck");
         $frase = $deck1[$id];
     }
+}
+else if ($decks == 2){
+    if (count($cards) == $deck2Size){
+        $frase = "Você jogou todas as cartas do modo, Obrigado!";
+    }
     else{
+        do{
+            $rand = rand(0, $deck2Size-1);
+        }while (in_array($rand, $cards));
+
+        $id = $rand;
         $deck2 = file("decks/2.deck");
-        $frase = $deck2[$id - $deck1Size];
+        $frase = $deck2[$id];
+    }
+}
+else{
+    $decksSize = $deck1Size + $deck2Size-1;
+
+    if (count($cards) == $decksSize){
+        $frase = "Você jogou todas as cartas do modo, Obrigado!";
+    }
+    else{
+        do{
+            $rand = rand(0, $decksSize-1);
+        }while (in_array($rand, $cards));
+
+        $id = $rand;
+        if ($id < $deck1Size){
+            $deck1 = file("decks/1.deck");
+            $frase = $deck1[$id];
+        }
+        else{
+            $deck2 = file("decks/2.deck");
+            $frase = $deck2[$id - $deck1Size];
+        }
     }
 }
 
