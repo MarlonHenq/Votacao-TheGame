@@ -27,7 +27,7 @@
             <img class="card-img-top" src="holder.js/100px180/" alt="">
             <div class="card-body">
               <h4 class="card-title">Regras:</h4>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam qui deserunt neque iure quas voluptatum eaque at necessitatibus? Saepe, aliquam sunt aperiam dolore autem culpa recusandae sapiente doloribus corrupti dolor.</p>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam qui deserunt neque iure quas voluptatum eaque at necessitatibus? Saepe, aliquam sunt aperiam dolore autem culpa recusandae sapiente doloribus corrupti dolor. (Faz tua regra ai menó, tô cansado de escrever).</p>
             </div>
           </div>
 
@@ -37,16 +37,36 @@
             <img class="card-img-top" src="holder.js/100px180/" alt="">
               <h2 class="card-title">Modos:</h2>
               
-              <a  href="game.php?decks=1"><button type="button" class="btn btn-light">Modo Padrão (🙂)</button></a>
+              <a  href="game.php?decks=1" class="btn btn-light" role="button">Modo Padrão (🙂)</a>
 
               <br>
 
-              <a href="game.php?decks=1,2"><button type="button" class="btn btn-primary">Modo Misto (🤩)</button></a>
+              <a href="game.php?decks=3" class="btn btn-primary" role="button">Modo Misto (🤩)</a>
 
               <br>
 
-              <a href="game.php?decks=2"><button type="button" class="btn btn-danger">Modo Hot (🔥 - HUI! ELE GOSTA)</button></a>
+              <a href="game.php?decks=2" class="btn btn-danger" role="button">Modo Hot (🔥 - HUI! ELE GOSTA)</a>
+
+              <br>
           </div>
+
+          <br>
+
+          <div class="card text-left">
+            <div class="card-body">
+              <h4 class="card-title">Sugerir Frase:</h4>
+            
+              <form action="saveForm.php" method="POST">
+                <div class="form-group">
+                  <label for="frase" class="white">Escreva sua frase:</label>
+                  <input class="form-control" id="frase" name="frase"></input>
+                </div>
+                <div class="d-flex justify-content-end">
+                  <button type="submit" class="btn btn-success">Enviar</button>
+                </div>  
+              </form>
+            </div>  
+          </div> 
           
 
 
@@ -59,7 +79,8 @@
     <nav class="navbar black">
         <br>
         <P class="white">Qualquer semalhança com qualquer outro jogo é mera coincidência. Nada disso é monetizado, então pau no seu cu!</P>
-        <p class="white">@MarlonHenq</p>
+        <a href="https://github.com/MarlonHenq/Votacao-TheGame" class="white">Github</a>
+        <a class="white" href="https://marlonhenq.dev">@MarlonHenq</a>
     </nav>
       
     <!-- Optional JavaScript -->
